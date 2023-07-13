@@ -72,3 +72,10 @@ img2B_lp = LaplacianPyramid(img2B_gp)
 R = reconstruct(blendingPyramid(img1R_lp,img2R_lp,mask_gp))
 G = reconstruct(blendingPyramid(img1G_lp,img2G_lp,mask_gp))
 B = reconstruct(blendingPyramid(img1B_lp,img2B_lp,mask_gp))
+
+output = cv2.merge((R,G,B))
+
+cv2.imwrite("output.png",output)
+img = cv2.imread("output.png")
+cv2.imshow("window",img)
+cv2.waitKey(0)
