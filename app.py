@@ -60,3 +60,15 @@ mask_gp = GaussianPyramid(mask)
 img2R_gp = GaussianPyramid(img2R)
 img2G_gp = GaussianPyramid(img2G)
 img2B_gp = GaussianPyramid(img2B)
+
+img1R_lp = LaplacianPyramid(img1R_gp)
+img1G_lp = LaplacianPyramid(img1G_gp)
+img1B_lp = LaplacianPyramid(img1B_gp)
+
+img2R_lp = LaplacianPyramid(img2R_gp)
+img2G_lp = LaplacianPyramid(img2G_gp)
+img2B_lp = LaplacianPyramid(img2B_gp)
+
+R = reconstruct(blendingPyramid(img1R_lp,img2R_lp,mask_gp))
+G = reconstruct(blendingPyramid(img1G_lp,img2G_lp,mask_gp))
+B = reconstruct(blendingPyramid(img1B_lp,img2B_lp,mask_gp))
