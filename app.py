@@ -14,3 +14,10 @@ def expandImage(image):
   expanded[::2, ::2] = image
   imageFilter = ndimage.convolve(expanded,4*kernel, mode='constant')
   return imageFilter
+
+def GaussianPyramid(image):
+  gp = [image]
+  while image.shape[0] >= 2 and image.shape[1] >= 2:
+    image = reduceImage(image)
+    gp.append(image)
+  return gp
