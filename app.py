@@ -42,3 +42,11 @@ def reconstruct(pyramid):
   for i in range(1, len(revPyramid)):
     image = expandImage(image) + revPyramid[i] 
   return image
+
+img1 = cv2.imread("face1.jpg")
+img2 = cv2.imread("face2.jpg")
+mask = cv2.imread("maskFa.jpg",0)
+
+
+img1R,img1G,img1B = cv2.split(img1)
+img2R,img2G,img2B = cv2.split(img2)
