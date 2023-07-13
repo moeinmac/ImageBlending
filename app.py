@@ -50,3 +50,13 @@ mask = cv2.imread("maskFa.jpg",0)
 
 img1R,img1G,img1B = cv2.split(img1)
 img2R,img2G,img2B = cv2.split(img2)
+
+img1R_gp = GaussianPyramid(img1R)
+img1G_gp = GaussianPyramid(img1G)
+img1B_gp = GaussianPyramid(img1B)
+
+mask_gp = GaussianPyramid(mask)
+
+img2R_gp = GaussianPyramid(img2R)
+img2G_gp = GaussianPyramid(img2G)
+img2B_gp = GaussianPyramid(img2B)
