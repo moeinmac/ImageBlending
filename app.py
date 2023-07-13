@@ -21,3 +21,10 @@ def GaussianPyramid(image):
     image = reduceImage(image)
     gp.append(image)
   return gp
+
+def LaplacianPyramid(gp):
+  lp = []
+  for i in range(len(gp) - 1):
+    lp.append(gp[i] - expandImage(gp[i + 1]))
+  return lp
+
