@@ -28,3 +28,17 @@ def LaplacianPyramid(gp):
     lp.append(gp[i] - expandImage(gp[i + 1]))
   return lp
 
+
+def blendingPyramid(lpA,lpB,gpMask):
+  blend = []
+  for i in range(len(lpA)):
+    bl = gpMask[i]/255*lpA[i] + (1-gpMask[i]/255)*lpB[i]
+    blend.append(bl)
+  return blend
+
+def reconstruct(pyramid):
+  revPyramid = pyramid[::-1]
+  image = revPyramid[0]
+  for i in range(1, len(revPyramid)):
+    image = expandImage(image) + revPyramid[i] 
+  return image
